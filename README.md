@@ -6,10 +6,7 @@
 
 ## Overview
 
-PR-HalluX is a small codebase for experiments on hallucinations in
-multimodal / vision-language models (MLLMs).
-
-The focus is:
+PR-HalluX is a small codebase for experiments on hallucinations in multimodal / vision-language models (MLLMs).
 
 - separate **perception-related** and **reasoning-related** errors,
 - extract internal signals (attention / features),
@@ -26,7 +23,7 @@ src/
 notebooks/       # Jupyter notebooks for experiments
 configs/         # experiment configs
 data/            # datasets (raw / processed, ignored by git)
-````
+```
 
 ## Installation
 
@@ -37,20 +34,3 @@ conda activate mllm-hallu-pr-xai
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
 pip install transformers datasets accelerate pillow matplotlib
 ```
-
-Adjust the PyTorch index URL to match your CUDA version.
-
-## Minimal usage
-
-1. Implement `src/models/mllm_wrapper.py` for one LVLM (e.g. LLaVA, Qwen-VL).
-2. Prepare a small image and text prompt.
-3. Run a quick test (script or `notebooks/01_baseline_inference.ipynb`) to check:
-
-   * image + prompt → text generation works on your GPU/CPU.
-4. Add:
-
-   * a hallucination benchmark,
-   * attention extraction,
-   * perception/reasoning scoring and simple policies,
-     as needed for your experiments.
-
